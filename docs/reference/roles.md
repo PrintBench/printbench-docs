@@ -6,6 +6,8 @@ Authorisation lives in one place: a `can(user, action)` function used by both th
 
 | Action | What it covers | Viewer | Member | Admin |
 | --- | --- | :---: | :---: | :---: |
+| `filament:view` | Browse the shared [filament library](/guide/filaments) | ✅ | ✅ | ✅ |
+| `filament:manage` | Add, edit, archive and measure shared spools and filament specifications | | ✅ | ✅ |
 | `model:view` | Browse and search models, creators, tags, collections | ✅ | ✅ | ✅ |
 | `file:download` | Download files and ZIPs | ✅ | ✅ | ✅ |
 | `like:toggle` | Like models (private) | ✅ | ✅ | ✅ |
@@ -43,6 +45,7 @@ Admins can manage anyone's lists; everyone else only their own.
 
 | Sidebar item | Needs |
 | --- | --- |
+| Filaments | `filament:view` |
 | Print queue | `request:create` |
 | Upload | `file:upload` |
 | Account settings | `file:upload` (sidebar); everyone via the account menu |

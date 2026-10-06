@@ -22,6 +22,7 @@ const sidebar = [
       { text: "Downloads", link: "/guide/downloads" },
       { text: "Uploading", link: "/guide/uploading" },
       { text: "Importing from Model Sites", link: "/guide/imports" },
+      { text: "Filament Library", link: "/guide/filaments" },
       { text: "Print History", link: "/guide/print-history" },
       { text: "Print Queue", link: "/guide/print-queue" },
       { text: "Slicers & Printers", link: "/guide/slicers-and-printers" },
