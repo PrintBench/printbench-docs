@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import releaseItems from "./releases.json" with { type: "json" };
 
 const sidebar = [
   { text: "Home", link: "/" },
@@ -95,17 +96,13 @@ const sidebar = [
       { text: "Codebase Tour", link: "/contributing/codebase" },
       { text: "Conventions & Invariants", link: "/contributing/conventions" },
       { text: "Reporting Security Issues", link: "/contributing/security" },
+      { text: "Release Checklist", link: "/contributing/releasing" },
     ],
   },
   {
     text: "Release Notes",
     link: "/releases/index",
-    items: [
-      { text: "v0.5.1", link: "/releases/v0.5.1" },
-      { text: "v0.5.0", link: "/releases/v0.5.0" },
-      { text: "v0.3.0", link: "/releases/v0.3.0" },
-      { text: "v0.2.0", link: "/releases/v0.2.0" },
-    ],
+    items: releaseItems,
   },
 ];
 
@@ -143,8 +140,9 @@ export default defineConfig({
       "/": sidebar,
     },
     editLink: {
-      pattern: "https://github.com/PrintBench/printbench/issues/new",
-      text: "Spotted a problem with this page? Open an issue",
+      pattern:
+        "https://github.com/PrintBench/printbench-docs/edit/main/docs/:path",
+      text: "Edit this page on GitHub",
     },
     outline: { level: [2, 3] },
     socialLinks: [
