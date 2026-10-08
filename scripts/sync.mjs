@@ -62,9 +62,9 @@ for (const file of releases) {
   outputs.set(
     `docs/releases/${file}`,
     banner +
-      (
-        await readFile(path.join(source, "docs/releases", file), "utf8")
-      ).replaceAll("](../model-imports.md)", "](/guide/imports)"),
+      (await readFile(path.join(source, "docs/releases", file), "utf8"))
+        .replaceAll("](../model-imports.md)", "](/guide/imports)")
+        .replaceAll("](../deployment.md)", "](/deploy/index)"),
   );
   items.push({ text: tag, link: `/releases/${tag}` });
 }
@@ -75,7 +75,7 @@ outputs.set(
 outputs.set(
   "docs/releases/index.md",
   banner +
-    "# Release Notes\n\nAuthored notes from the app repository. Each page describes changes and upgrade steps.\n\n" +
+    "# Release Notes\n\nAuthored notes from the app repository. Historical archive pages retain the original release entries and identify any missing upgrade guidance.\n\n[View all GitHub releases](https://github.com/PrintBench/printbench/releases).\n\n" +
     items.map(({ text, link }) => `- [${text}](${link})`).join("\n") +
     "\n\nSee [Upgrading](/deploy/upgrading) for the deployment procedure.\n",
 );

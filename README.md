@@ -63,6 +63,16 @@ in included Markdown. It does not validate external URLs or heading anchors.
 
 CI checks pull requests, main pushes and manual runs against
 `PrintBench/printbench` main. A weekly run also detects drift after app changes.
+CI fetches every GitHub release (including all API pages) and requires app notes,
+site notes, navigation and index entries for each published tag. Draft releases
+are excluded; published prereleases are included. API failures fail the check.
+To run the same coverage check locally:
+
+```sh
+gh api --paginate --slurp repos/PrintBench/printbench/releases > /tmp/printbench-releases.json
+npm run docs:check:releases -- --source ../printbench --releases /tmp/printbench-releases.json
+```
+
 Land shared app changes first, then sync and land their docs update; a docs PR
 can fail its drift check until the corresponding app changes are on main.
 Review the app checkout before syncing: generated content reflects its working
@@ -72,3 +82,16 @@ When a setting, route or environment variable changes, update the handwritten
 pages too. [Environment variables](docs/reference/environment.md) and
 [Roles & permissions](docs/reference/roles.md) need particular attention.
 Follow the [release checklist](docs/contributing/releasing.md) before tagging.
+
+## Checking a deployed site
+
+The CI workflow verifies content; it does not deploy the site. Configure your
+hosting service to build this repository's `main` after merges, or redeploy it
+manually. In Coolify, check the Git repository, branch (`main`), auto-deploy
+configuration and the deployed commit in the latest deployment log.
+
+After deployment, open `/releases/` and confirm its list matches
+[GitHub Releases](https://github.com/PrintBench/printbench/releases). The release
+history should include every published tag, including archived early releases.
+If the built site is current but a browser still shows
+an older list, check the proxy/CDN cache and refresh it after a successful deploy.

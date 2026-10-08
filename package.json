@@ -8,6 +8,7 @@
     "docs:preview": "vitepress preview docs",
     "docs:sync": "node scripts/sync.mjs",
     "docs:check": "node scripts/check.mjs",
-    "test:sync": "node --test scripts/sync.test.mjs"
+    "test:sync": "node --test scripts/sync.test.mjs scripts/check-published-releases.test.mjs",
+    "docs:check:releases": "node scripts/check-published-releases.mjs"
   }
 }

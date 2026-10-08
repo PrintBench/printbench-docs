@@ -2,14 +2,18 @@
 
 # Release Notes
 
-Authored notes from the app repository. Each page describes changes and upgrade steps.
+Authored notes from the app repository. Historical archive pages retain the original release entries and identify any missing upgrade guidance.
+
+[View all GitHub releases](https://github.com/PrintBench/printbench/releases).
 
 - [v0.7.0](/releases/v0.7.0)
 - [v0.6.0](/releases/v0.6.0)
 - [v0.5.2](/releases/v0.5.2)
 - [v0.5.1](/releases/v0.5.1)
 - [v0.5.0](/releases/v0.5.0)
+- [v0.4.0](/releases/v0.4.0)
 - [v0.3.0](/releases/v0.3.0)
 - [v0.2.0](/releases/v0.2.0)
+- [v0.1.0](/releases/v0.1.0)
 
 See [Upgrading](/deploy/upgrading) for the deployment procedure.
