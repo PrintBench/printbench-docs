@@ -4,6 +4,7 @@
 
 Authored notes from the app repository. Each page describes changes and upgrade steps.
 
+- [v0.7.0](/releases/v0.7.0)
 - [v0.6.0](/releases/v0.6.0)
 - [v0.5.2](/releases/v0.5.2)
 - [v0.5.1](/releases/v0.5.1)
