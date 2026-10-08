@@ -2,3 +2,4 @@ node_modules
 .git
 .github
 docs/.vitepress/dist
+.source

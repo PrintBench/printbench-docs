@@ -7,7 +7,7 @@ git pull
 docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
 ```
 
-Migrations run automatically at startup, **before** the app accepts traffic. They are **forward-only**, take a database backup before a major or minor version bump, and read the release notes' *Upgrade notes*.
+Migrations run automatically at startup, **before** the app accepts traffic. They are **forward-only**, take a database backup before a major or minor version bump, and read the release notes' _Upgrade notes_.
 
 ## Before you upgrade
 
@@ -26,16 +26,16 @@ Migrations are forward-only, so there is no automatic downgrade. To roll back to
 
 ## Notes on specific releases
 
-| Version | Watch for |
-| --- | --- |
-| [0.5.1](/releases/v0.5.1) | `LIBRARY_READ_ONLY` replaces `LIBRARY_MODE`. Coolify compose fix. |
+| Version                   | Watch for                                                                                 |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
+| [0.5.1](/releases/v0.5.1) | `LIBRARY_READ_ONLY` replaces `LIBRARY_MODE`. Coolify compose fix.                         |
 | [0.5.0](/releases/v0.5.0) | Migrations `0012`–`0014` (embedded metadata state, source imports, provider credentials). |
-| [0.3.0](/releases/v0.3.0) | New 3MF size limits; opt-in writable libraries; memory diagnostics. |
-| [0.2.0](/releases/v0.2.0) | Migration `0011` adds `models.is_package`. |
+| [0.3.0](/releases/v0.3.0) | New 3MF size limits; opt-in writable libraries; memory diagnostics.                       |
+| [0.2.0](/releases/v0.2.0) | Migration `0011` adds `models.is_package`.                                                |
 
 ## Releases and images
 
-Releases are cut by pushing a `vX.Y.Z` tag that matches `package.json`. The release workflow builds the image from that commit, publishes it to `ghcr.io`, attests its provenance and opens a GitHub Release. Nothing is published by merging to `main`.
+Releases are cut by pushing a `vX.Y.Z` tag that matches `package.json`. The release workflow validates the tag and authored notes and runs CI against that commit before publishing the image to `ghcr.io`, attesting its provenance and opening a GitHub Release. Stable releases update rolling image tags; prereleases publish only their explicit version tag and are never marked latest. Nothing is published by merging to `main`.
 
 ## After upgrading
 

@@ -21,10 +21,15 @@ PrintBench ships a few `npm run` commands for operators. Run them from the appli
 | `npm run db:generate` | Generate a migration after editing the schema. Commit what it produces. |
 | `npm run db:migrate` | Apply migrations. |
 | `npm run build` | Build web and worker. |
+| `npm run check` | Formatting, lint, typechecking, release preparation tests and the application suite. Configure and start the database first. |
 | `npm run typecheck` | TypeScript across the workspace. |
 | `npm run lint` | ESLint across the workspace. |
 | `npm run format` / `npm run format:check` | Prettier. |
-| `npm test` / `npm run test:watch` | Vitest. Needs the dev database up. |
+| `npm test` / `npm run test:watch` | Full suite. Requires `DATABASE_URL` and a running, migrated development/test database. |
+| `npm run test:release` | Release metadata and image-tag safeguards, without a database or network. |
+| `npm run release:check -- v<version>` | Validate the prepared package version and authored release notes; prints image tags without publishing. |
+| `npm run test:unit` | Tests without Postgres, including pure suites in mixed test files. |
+| `npm run test:integration` | Database suites only. Requires `DATABASE_URL` and a running, migrated development/test database. |
 | `npm run auth:schema` | Reconcile `packages/db/src/schema/auth.ts` against what better-auth expects, after upgrading it. |
 
 ## Verification scripts
@@ -33,6 +38,7 @@ These drive a **running dev server** end to end, creating throwaway accounts and
 
 | Command | Covers |
 | --- | --- |
+| `npm run verify:smoke` | Chromium scan/upload flows through the production web server and worker, thumbnails and permission checks. Starts/stops its own app processes; requires an empty, migrated test database and Chromium. |
 | `npm run verify:phase1` | Auth surface and role guards, in both directions. |
 | `npm run verify:phase2` | Scan pipeline and safety guards. |
 | `npm run verify:phase2:ui` | Web → queue → worker → pages. |

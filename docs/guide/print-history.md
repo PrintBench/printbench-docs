@@ -55,3 +55,7 @@ A model's **success rate** is *unknown*, not 0%, until at least one print has se
 ## From the print queue
 
 Marking a **linked** [print queue](/guide/print-queue) request as *printed* records an entry in the history automatically, so a model printed off the back of a request doesn't go on reporting "never printed". Reopening the request withdraws that entry again, unless somebody has since rated or weighed it, in which case it has been adopted as a real record and is left alone. A request with no model linked logs nothing.
+
+## Using inventory spools
+
+Add **Spools used** rows to link a print to your [filament library](/guide/filaments). PrintBench totals grams, estimates cost and deducts stock for finished prints, including failed ones. In-progress amounts do not deduct stock. Edits and deletion reconcile the deduction automatically. Logging without spools still works.

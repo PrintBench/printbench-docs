@@ -1,19 +1,6 @@
 # Development Setup
 
-## Requirements
-
-- **Node 24** (see `.nvmrc`; `package.json` requires Node ≥ 22)
-- **Docker**, for the development database
-
-## Get running
-
-```bash
-npm install
-cp .env.example .env
-npm run db:up        # Postgres 18 on port 5433
-npm run db:migrate
-npm run dev          # web on :3000, worker alongside
-```
+<!--@include: ../.vitepress/shared/setup.md-->
 
 `npm run dev` starts the web app and the worker together, with coloured prefixes. Open <http://localhost:3000>; on a fresh database you'll start at `/setup`.
 
@@ -21,14 +8,14 @@ The development `.env` works out of the box: `DATABASE_URL` points at the Postgr
 
 ## Useful commands
 
-| Command | What it does |
-| --- | --- |
-| `npm run dev:web` / `dev:worker` | Run one process. |
-| `npm run db:down` | Stop the dev database. |
-| `npm run db:generate` | Generate a migration after editing the schema. |
-| `npm run build` | Build web and worker. |
-| `npm run lint`, `npm run typecheck`, `npm test` | The checks CI runs. |
-| `npm run format` | Prettier. |
+| Command                          | What it does                                                                                                                 |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev:web` / `dev:worker` | Run one process.                                                                                                             |
+| `npm run db:down`                | Stop the dev database.                                                                                                       |
+| `npm run db:generate`            | Generate a migration after editing the schema.                                                                               |
+| `npm run build`                  | Build web and worker.                                                                                                        |
+| `npm run check`                  | Formatting, lint, typechecking, release preparation tests and the application suite. Configure and start the database first. |
+| `npm run format`                 | Prettier.                                                                                                                    |
 
 More in [Command Line](/reference/cli).
 
@@ -52,7 +39,7 @@ docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
 
 ## Worktrees
 
-A git worktree doesn't inherit `.env` from the main checkout. Copy it across, or the database-backed tests will skip. See [Checks & Testing](/contributing/testing#env-matters-more-than-you-would-expect).
+A git worktree doesn't inherit `.env` from the main checkout. Copy it across before running the full or integration suite, or use `npm run test:unit` without Postgres. See [Checks & Testing](/contributing/testing#unit-and-integration-tests).
 
 ## The `reference/` directory
 
