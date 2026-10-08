@@ -38,7 +38,7 @@ async function fixture(t) {
   for (const tag of ["v0.9.0", "v0.10.0-rc.2", "v0.10.0-rc.10", "v0.10.0"])
     await writeFile(
       path.join(source, `docs/releases/${tag}.md`),
-      `# ${tag}\n\nAuthored content [imports](../model-imports.md)\n`,
+      `# ${tag}\n\nAuthored content [imports](../model-imports.md) [deploy](../deployment.md)\n`,
     );
   const run = (...args) =>
     spawnSync(

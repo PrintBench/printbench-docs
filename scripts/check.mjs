@@ -2,7 +2,11 @@ import { spawnSync } from "node:child_process";
 
 for (const args of [
   ["scripts/sync.mjs", "--check", ...process.argv.slice(2)],
-  ["--test", "scripts/sync.test.mjs"],
+  [
+    "--test",
+    "scripts/sync.test.mjs",
+    "scripts/check-published-releases.test.mjs",
+  ],
   ["node_modules/vitepress/bin/vitepress.js", "build", "docs"],
 ]) {
   const result = spawnSync(process.execPath, args, { stdio: "inherit" });

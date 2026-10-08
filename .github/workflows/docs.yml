@@ -33,3 +33,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run docs:check -- --source .source/printbench
+      - name: Fetch all published app releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --paginate --slurp repos/PrintBench/printbench/releases > .source/releases.json
+      - name: Check published release coverage
+        run: npm run docs:check:releases -- --source .source/printbench --releases .source/releases.json
