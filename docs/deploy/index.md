@@ -15,7 +15,8 @@ Two application processes run from one image, with nginx in front of them:
 
 | I want to… | Read |
 | --- | --- |
-| Run it with Docker Compose | [Docker Compose](/deploy/docker-compose) |
+| Run it on this computer | [Quick Start](/getting-started/quick-start) |
+| Build the Docker Compose stack from source | [Docker Compose](/deploy/docker-compose) |
 | Run it on Coolify | [Coolify](/deploy/coolify) |
 | Put a domain and TLS in front | [Reverse Proxy & TLS](/deploy/reverse-proxy) |
 | Use a NAS, SMB share or extra mounts | [Storage & NAS Mounts](/deploy/storage) |
@@ -25,7 +26,7 @@ Two application processes run from one image, with nginx in front of them:
 | Index a very big library | [Large Libraries & Memory](/deploy/large-libraries) |
 | Work out what's wrong | [Troubleshooting](/deploy/troubleshooting) |
 
-## Before you deploy anywhere
+## Before you deploy on a server
 
 1. **Generate a real `BETTER_AUTH_SECRET`** (`openssl rand -base64 32`) and keep it. It signs sessions and links and encrypts stored printer and S3 credentials.
 2. **Set `APP_URL` and `BETTER_AUTH_URL`** to the address people will actually type, including the scheme.

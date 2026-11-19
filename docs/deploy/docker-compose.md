@@ -1,6 +1,6 @@
 # Docker Compose
 
-The production stack is `docker-compose.yml`. It must reach a working login with no manual steps. That is the bar the project holds itself to.
+For a new install on this computer, start with the [Quick Start](/getting-started/quick-start). This page covers the repository's `docker-compose.yml`, which builds the images from source and is used for server deployments and Coolify.
 
 ## Services
 
@@ -84,4 +84,4 @@ For memory diagnostics on large libraries. See [Large Libraries & Memory](/deplo
 
 ## Releases
 
-Tagged releases are built into a container image, published to `ghcr.io` with a provenance attestation and announced as a GitHub Release. See [Upgrading](/deploy/upgrading).
+Tagged releases publish app and nginx images to `ghcr.io` with provenance attestations. The GitHub release includes a `compose.yaml` that uses the matching images. See [Upgrading](/deploy/upgrading).

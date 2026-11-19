@@ -11,13 +11,13 @@ docker compose logs --tail=200 web worker
 
 ## Starting up
 
-**Compose refuses to start.** `POSTGRES_PASSWORD` or `BETTER_AUTH_SECRET` is empty in `.env`. Both are required on purpose.
+**Compose reports a missing password or secret.** In a source-based deployment, check `POSTGRES_PASSWORD` and `BETTER_AUTH_SECRET` in `.env`. If a quick-start deployment reports missing credentials for an existing database, restore its `credentials` volume from backup.
 
 **Postgres refuses to start with a data-directory error.** Postgres 18 expects the volume at `/var/lib/postgresql`, not `/var/lib/postgresql/data`. Fix the mount; the container won't use the old convention.
 
 **Coolify: `Invalid volume source: contains forbidden character '${'`.** You have an older 0.5.0 compose file. Use the long-form library mounts from the current file. See [Coolify](/deploy/coolify#library-mounts-and-the-coolify-volume-parser).
 
-**I can't reach the app.** For local use make sure you included `docker-compose.local.yml`. Behind a proxy, check the proxy targets the **`nginx`** service on port 80, not `web`.
+**I can't reach the app.** For the quick start, open `http://localhost:8080` on the Docker host or use the port configured in `PRINTBENCH_PORT`. For a source build on this computer, include `docker-compose.local.yml`. Behind a proxy, check that the proxy targets **`nginx`** on port 80.
 
 ## Signing in
 

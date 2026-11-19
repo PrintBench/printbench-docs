@@ -40,3 +40,9 @@ Don't paste a reset link into a chat or a log, and give it only to the account o
 :::
 
 In Docker, run the command in the web container with the same environment as the app.
+
+For a quick-start install, use the local entrypoint to load the generated credentials.
+
+```sh
+docker compose exec web /usr/local/bin/local-entrypoint.sh npm run auth:reset -- --email your@email.example
+```

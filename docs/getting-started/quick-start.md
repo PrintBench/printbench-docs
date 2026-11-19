@@ -1,65 +1,40 @@
 # Quick Start
 
-This gets a local instance running with Docker. For a server, a domain name or Coolify, follow it first and then read [Docker Compose](/deploy/docker-compose) and [Coolify](/deploy/coolify).
-
-## 1. Get the code and create your `.env`
-
-```bash
-git clone https://github.com/PrintBench/printbench.git
-cd printbench
-cp .env.example .env
-```
-
-## 2. Set three values
-
-Open `.env` and set:
-
-| Variable | What to put |
-| --- | --- |
-| `POSTGRES_PASSWORD` | Anything long. It never leaves the Compose network. There is no default on purpose. Compose refuses to start until you set one. |
-| `BETTER_AUTH_SECRET` | A random secret. Generate one with `openssl rand -base64 32`. |
-| `LIBRARY_PATH` | The folder on your machine that holds your print files. |
-
-::: danger Keep `BETTER_AUTH_SECRET` safe
-It is not just a session key. It also derives the encryption key for stored printer API keys and S3 secrets, and signs the short-lived links used for slicer hand-off, uploads and ZIP downloads. Changing it signs everyone out **and** makes stored printer credentials unreadable. Back it up alongside your database.
-:::
-
-## 3. Start the stack
+With Docker and Compose installed, download
+[compose.yaml](https://github.com/PrintBench/printbench/releases/latest/download/compose.yaml)
+into an empty folder. Open a terminal in that folder and run this command.
 
 ```bash
-docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
+docker compose up -d
 ```
 
-The first run builds the images, applies the database migrations and starts all four services. `docker-compose.local.yml` publishes nginx on your machine; without it nothing is reachable from outside the Compose network.
+Docker pulls the public release images anonymously. On first startup PrintBench generates its
+credentials and applies the database migrations.
 
-## 4. Open the app
-
-Go to <http://localhost:8080>. A fresh instance starts at **/setup**, where you create the first admin account. Carry on with [First Run](/getting-started/first-run).
+Open <http://localhost:8080> and create the first admin account. To add your first
+model, choose **Somewhere to upload to** when adding a library, then use the
+**Upload** page. See [First Run](/getting-started/first-run).
 
 ![The first-run screen for creating the admin account](/images/getting-started/setup.png)
 
-::: tip Your library is read-only
-`LIBRARY_PATH` is mounted **read-only** by default. PrintBench indexes it and never moves, renames or deletes anything in it. If you want it to write metadata sidecars next to your models. See [Metadata & Sidecars](/concepts/sidecars).
-:::
+## Index a folder you already have
 
-## Changing the port
+Create a `.env` file next to `compose.yaml` with `LIBRARY_PATH` set to the host
+folder. Run `docker compose up -d` again. In PrintBench, choose **Files I already
+have**, select `/libraries`, and run the first scan. The folder is mounted
+read-only.
 
-The local override publishes port `8080`. Set `PORT` in `.env` to use another one:
+## Change the port
 
-```bash
-PORT=9000
-```
+If port 8080 is in use, set `PRINTBENCH_PORT=9000` in `.env`, run
+`docker compose up -d` again, and open <http://localhost:9000>.
 
-If you later put the app behind a domain, set `APP_URL` as well. See [Environment Variables](/reference/environment).
+## Stop or upgrade
 
-## Running without Docker
+Use `docker compose down` to stop PrintBench and keep your data. When backing up
+Docker volumes, keep the `credentials` volume with `pgdata` and `data`. See
+[Upgrading](/deploy/upgrading) for instructions on updating the Compose file.
 
-If you want to run PrintBench from source (for development, or just to try it). See [Development Setup](/contributing/setup). You will still need Postgres, which `npm run db:up` starts in Docker for you.
-
-## Something not working?
-
-- **Compose refuses to start** and mentions `POSTGRES_PASSWORD` or `BETTER_AUTH_SECRET`: one of the required values in `.env` is empty.
-- **The page doesn't load**: check you included `docker-compose.local.yml`, and that nothing else is using the port.
-- **The library looks empty**: that is normal until the first scan. See [First Run](/getting-started/first-run#add-your-first-library).
-
-More in [Troubleshooting](/deploy/troubleshooting).
+To host on a domain, follow [Coolify](/deploy/coolify) or
+[Reverse Proxy & TLS](/deploy/reverse-proxy). To build from source, see
+[Docker Compose](/deploy/docker-compose) or [Development Setup](/contributing/setup).
