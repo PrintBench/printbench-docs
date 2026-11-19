@@ -3,6 +3,8 @@
 ## Local quick start
 
 Back up the instance and keep its `credentials`, `pgdata` and `data` volumes.
+Make sure Docker is [signed in to GitHub Container Registry](/getting-started/quick-start)
+with read access to both image packages.
 Replace `compose.yaml` with the asset from the new
 [GitHub release](https://github.com/PrintBench/printbench/releases), then run
 `docker compose up -d` in the same folder. The file selects the matching app and

@@ -1,6 +1,18 @@
 # Quick Start
 
-For a new install on this computer, install Docker with Compose and download
+The release images are private. For a new local install, you need Docker with
+Compose, a GitHub account with read access to the `printbench` and
+`printbench-nginx` packages, and a personal access token (classic) with the
+`read:packages` scope. If your organisation requires single sign-on, authorise
+the token for the organisation. See the [GitHub Container Registry authentication guide](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry).
+
+Sign in to the registry and enter the token when Docker prompts for a password.
+
+```bash
+docker login ghcr.io --username YOUR_GITHUB_USERNAME
+```
+
+Download
 [compose.yaml](https://github.com/PrintBench/printbench/releases/latest/download/compose.yaml)
 into an empty folder. Open a terminal in that folder and run this command.
 
