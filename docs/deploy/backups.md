@@ -57,7 +57,7 @@ In a library mounted read-only, PrintBench can't write sidecars, so the database
 
 ## Don't forget the secret
 
-Keep a copy of **`BETTER_AUTH_SECRET`** with your backups. Restoring a database without it leaves sessions invalid and stored printer and S3 credentials undecryptable.
+For a quick-start install, back up the `credentials` volume along with `pgdata` and `data`. For a source-based deployment, keep a copy of **`BETTER_AUTH_SECRET`** with your backups. Restoring a database without the matching secret invalidates sessions and makes stored printer and S3 credentials unreadable.
 
 ## A simple routine
 
@@ -66,7 +66,7 @@ Keep a copy of **`BETTER_AUTH_SECRET`** with your backups. Restoring a database 
 | `pg_dump` of the database | Daily |
 | Metadata export | Weekly, kept alongside the dump |
 | Upload libraries | With your normal file backups |
-| `.env` / `BETTER_AUTH_SECRET` | Whenever it changes |
+| `credentials` volume or `.env` | With your database backup |
 | Restore drill | Once, now |
 
 ## The restore drill

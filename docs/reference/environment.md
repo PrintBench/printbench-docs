@@ -1,6 +1,8 @@
 # Environment Variables
 
-Copy `.env.example` to `.env` and edit it. Docker reads only the keys under **Secrets**, **Your library** and **Docker stack**; Compose interpolates them into the containers. The **Local development** keys are read by the app itself when run outside Docker, and the containers never see them.
+For the [Quick Start](/getting-started/quick-start), PrintBench generates credentials automatically. To change the host port or mount an existing library, set `PRINTBENCH_PORT` or `LIBRARY_PATH` in an optional `.env` alongside the downloaded `compose.yaml`.
+
+For source-based deployments, copy `.env.example` to `.env` and edit it. Docker reads only the keys under **Secrets**, **Your library** and **Docker stack**; Compose interpolates them into the containers. The **Local development** keys are read by the app itself when run outside Docker, and the containers never see them.
 
 ## Secrets
 

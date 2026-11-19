@@ -1,6 +1,14 @@
 # Upgrading
 
-## The short version
+## Local quick start
+
+Back up the instance and keep its `credentials`, `pgdata` and `data` volumes.
+Replace `compose.yaml` with the asset from the new
+[GitHub release](https://github.com/PrintBench/printbench/releases), then run
+`docker compose up -d` in the same folder. The file selects the matching app and
+nginx images.
+
+## Existing source-based deployment
 
 ```bash
 git pull
@@ -14,7 +22,7 @@ Migrations run automatically at startup, **before** the app accepts traffic. The
 1. **Back up the database**: see [Backups & Restore](/deploy/backups).
 2. **Read the release notes** for every version you're skipping. Each lists migrations and any renamed variables. They're collected under [Release Notes](/releases/index).
 3. **Keep** your `LIBRARY_PATH`, database volume and data volume.
-4. **Keep your `.env`**: in particular `BETTER_AUTH_SECRET`.
+4. **Keep your credentials.** The quick start stores them in the `credentials` volume. Source-based deployments use `.env`, including `BETTER_AUTH_SECRET`.
 
 ## What happens at startup
 
@@ -35,7 +43,7 @@ Migrations are forward-only, so there is no automatic downgrade. To roll back to
 
 ## Releases and images
 
-Releases are cut by pushing a `vX.Y.Z` tag that matches `package.json`. The release workflow validates the tag and authored notes and runs CI against that commit before publishing the image to `ghcr.io`, attesting its provenance and opening a GitHub Release. Stable releases update rolling image tags; prereleases publish only their explicit version tag and are never marked latest. Nothing is published by merging to `main`.
+Releases are cut by pushing a `vX.Y.Z` tag that matches `package.json`. The release workflow validates the tag and authored notes and runs CI before publishing the app and nginx images with provenance attestations. The GitHub release includes the versioned Compose file. Stable releases update rolling image tags; prereleases publish only their explicit version tag and are never marked latest. Nothing is published by merging to `main`.
 
 ## After upgrading
 

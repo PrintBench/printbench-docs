@@ -22,7 +22,7 @@ hero:
 
 features:
   - title: Getting Started
-    details: Run PrintBench with Docker Compose, create the first admin account and point it at the folder holding your print files.
+    details: Run PrintBench with Docker Compose, create the first admin account and upload your first model.
     link: /getting-started/index
     linkText: Get Started
   - title: User Guide
@@ -67,7 +67,7 @@ It is deliberately small to run:
 
 ## Quick Links
 
-- [Quick Start](/getting-started/quick-start): four commands to a running instance
+- [Quick Start](/getting-started/quick-start): download a Compose file and start PrintBench locally
 - [First Run](/getting-started/first-run): creating the admin account and adding your first library
 - [Search & Filters](/guide/search): finding the one model in ten thousand
 - [Importing from Model Sites](/guide/imports): MakerWorld, Printables and Thingiverse links
