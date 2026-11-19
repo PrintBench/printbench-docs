@@ -11,8 +11,6 @@ docker compose logs --tail=200 web worker
 
 ## Starting up
 
-**GitHub Container Registry denies the image pull.** Sign in with `docker login ghcr.io` and a token with `read:packages`. Your GitHub account needs read access to both private image packages. See [Quick Start](/getting-started/quick-start).
-
 **Compose reports a missing password or secret.** In a source-based deployment, check `POSTGRES_PASSWORD` and `BETTER_AUTH_SECRET` in `.env`. If a quick-start deployment reports missing credentials for an existing database, restore its `credentials` volume from backup.
 
 **Postgres refuses to start with a data-directory error.** Postgres 18 expects the volume at `/var/lib/postgresql`, not `/var/lib/postgresql/data`. Fix the mount; the container won't use the old convention.

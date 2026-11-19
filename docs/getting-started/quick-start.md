@@ -1,18 +1,6 @@
 # Quick Start
 
-The release images are private. For a new local install, you need Docker with
-Compose, a GitHub account with read access to the `printbench` and
-`printbench-nginx` packages, and a personal access token (classic) with the
-`read:packages` scope. If your organisation requires single sign-on, authorise
-the token for the organisation. See the [GitHub Container Registry authentication guide](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry).
-
-Sign in to the registry and enter the token when Docker prompts for a password.
-
-```bash
-docker login ghcr.io --username YOUR_GITHUB_USERNAME
-```
-
-Download
+With Docker and Compose installed, download
 [compose.yaml](https://github.com/PrintBench/printbench/releases/latest/download/compose.yaml)
 into an empty folder. Open a terminal in that folder and run this command.
 
@@ -20,7 +8,7 @@ into an empty folder. Open a terminal in that folder and run this command.
 docker compose up -d
 ```
 
-Docker pulls the release images. On first startup PrintBench generates its
+Docker pulls the public release images anonymously. On first startup PrintBench generates its
 credentials and applies the database migrations.
 
 Open <http://localhost:8080> and create the first admin account. To add your first
