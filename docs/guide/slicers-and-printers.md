@@ -4,7 +4,7 @@ PrintBench doesn't slice and doesn't drive printers directly. It does the two th
 
 ## Open in… your slicer
 
-![The Open in… menu listing supported slicers](/images/guide/open-in-slicer.png)
+![Open in slicer at the top of a model page, listing the supported slicers](/images/guide/open-in-slicer.png)
 
 **Open in…** launches a file in a slicer with the model loaded. It works for printers with no network API at all, because the slicer takes it from there.
 
