@@ -65,6 +65,20 @@ In a library PrintBench can write to, these are also saved as a [`.printbench.js
 
 Models imported from a model site (or whose 3MF carries a recognised MakerWorld project) show a **Source links** section pointing back to the original page.
 
+### Photos
+
+**Photos** is what the thing actually looks like when it comes off the plate. A print log tells you a print succeeded; a photograph is the only reliable way to tell two versions of the same model apart six months later.
+
+Add one with **Add photos** — several at once if you like. Each is stored with an optional **caption** and, like a note, may name a **print** from this model's history or no print at all. Click a tile to open the full-size image; from there you can edit the caption and the print it belongs to, or delete it.
+
+A model holds up to **60** photos, and a single upload is capped at **25 MB**.
+
+::: tip Your photographs are re-encoded, on purpose
+Nothing is stored as you sent it. Every upload is decoded and written out as WebP at two sizes — one for the grid, one for the viewer. That is three things at once: it is the format check (a file that won't decode never reaches disk, whatever its name or content type claims), it bounds what a 48-megapixel phone photograph costs to serve, and it **strips the metadata your camera wrote**, including GPS coordinates. A shared workshop instance should not publish the owner's home address alongside a picture of a benchy.
+:::
+
+Uploading needs the **member** role. You can edit and delete your own photos; only an admin can change somebody else's. See [Roles & Permissions](/reference/roles).
+
 ### Notes
 
 **Notes** is the model's working log: what went wrong, what fixed it, what to do differently next time. Each note keeps its author and the date it was written, newest first, and nothing overwrites what came before.

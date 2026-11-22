@@ -39,6 +39,10 @@ Each derived artefact (thumbnail, geometry analysis) is `pending`, `ok`, `failed
 
 A mesh that can't be parsed (truncated, corrupt, over budget) shows up as a *Could not be read* [health problem](/admin/health); the file stays indexed and downloadable.
 
+## Thumbnails are not photographs
+
+Everything on this page describes **derived** artwork: rendered from a mesh, regenerable, and thrown away and rebuilt whenever the renderer changes. [Photos](/guide/models#photos) a person uploads are the opposite — the only copy there is — so they live in a store of their own under `/data/photos` rather than beside the thumbnails, and they are included in [backups](/deploy/backups) where thumbnails deliberately are not. Clearing the previews can therefore never cost you a photograph.
+
 ## Model cards vs artwork
 
 Cards describe the **printable file format** (STL, 3MF…) independently of the artwork shown, so a model whose cover is a WEBP still reads as, say, *3MF*.

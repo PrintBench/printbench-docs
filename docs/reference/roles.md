@@ -23,6 +23,8 @@ Authorisation lives in one place: a `can(user, action)` function used by both th
 | `print:log` | Log and edit [print history](/guide/print-history) | | ✅ | ✅ |
 | `note:create` | Write a [note](/guide/models#notes) on a model | | ✅ | ✅ |
 | `note:manage` | Edit and delete notes — your own; anyone's as an admin | | ✅ | ✅ |
+| `photo:create` | Upload a [photo](/guide/models#photos) to a model | | ✅ | ✅ |
+| `photo:manage` | Caption, relink and delete photos — your own; anyone's as an admin | | ✅ | ✅ |
 | `request:manage` | Start, finish, cancel and reopen queue requests | | ✅ | ✅ |
 | `scan:trigger` | Trigger a normal scan | | ✅ | ✅ |
 | `problem:resolve` | Resolve or ignore [health](/admin/health) problems | | ✅ | ✅ |
@@ -32,7 +34,7 @@ Authorisation lives in one place: a `can(user, action)` function used by both th
 | `user:manage` | Invite, create, suspend, delete, reset passwords | | | ✅ |
 | `settings:manage` | [Instance settings](/admin/settings) | | | ✅ |
 
-Admins can manage anyone's lists and notes; everyone else only their own.
+Admins can manage anyone's lists, notes and photos; everyone else only their own.
 
 ## Special cases
 
@@ -41,7 +43,7 @@ Admins can manage anyone's lists and notes; everyone else only their own.
 - **An unknown role** grants nothing.
 - **Scans:** members may trigger a normal scan, but *force/deep* scans and *restoring sidecars* need `library:manage`.
 - **Password changes** are open to every signed-in user, including viewers.
-- **Notes belong to whoever wrote them.** A member may correct their own note; rewriting a colleague's account of what they did takes an admin. A note whose author's account has been deleted is governed by the role alone.
+- **Notes and photos belong to whoever added them.** A member may correct their own; changing a colleague's account of what they did takes an admin. One whose author's account has been deleted is governed by the role alone.
 - **Hidden isn't protected.** UI elements you lack permission for are hidden, but every server action re-checks.
 
 ## Where things appear
