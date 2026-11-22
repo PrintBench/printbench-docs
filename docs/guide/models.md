@@ -34,6 +34,8 @@ If a 3MF exported from a slicer contains an embedded plate render, PrintBench us
 | **Share** | Members | Create or revoke a [share link](/guide/sharing). Only shown if sharing is enabled. |
 | **Move** | Members | Move the model to another library. |
 | **Remove / Delete** | Members | See [Removing Models](/guide/removing). |
+| **Open in slicer** | Everyone | Hand a file to a desktop slicer. One printable file goes straight there; several ask which. See [Slicers & Printers](/guide/slicers-and-printers). |
+| **Download all** | Everyone | The whole model as a ZIP. See [Downloads](/guide/downloads). |
 
 Packages and models that are missing from disk offer fewer actions. A model that can't be found shows a **Missing from disk** badge. See [Safety Guards](/concepts/safety).
 
@@ -42,7 +44,7 @@ Packages and models that are missing from disk offer fewer actions. A model that
 Files are shown as a collapsible directory tree, with 3MF files listed first. Each file offers whatever applies to it:
 
 - **Download**: see [Downloads](/guide/downloads).
-- **Open in…**: launch the file in a slicer. See [Slicers & Printers](/guide/slicers-and-printers).
+- **Open in…**: launch that one file in a slicer, the same action the header button offers for the model as a whole. See [Slicers & Printers](/guide/slicers-and-printers).
 - **Send**: push a sliced file to a printer.
 
 ### Editing details

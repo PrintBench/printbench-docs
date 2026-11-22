@@ -6,7 +6,12 @@ PrintBench doesn't slice and doesn't drive printers directly. It does the two th
 
 ![The Open in… menu listing supported slicers](/images/guide/open-in-slicer.png)
 
-**Open in…** appears on any file a slicer can read, and launches it with the file loaded. It works for printers with no network API at all, because the slicer takes it from there.
+**Open in…** launches a file in a slicer with the model loaded. It works for printers with no network API at all, because the slicer takes it from there.
+
+It is offered in two places:
+
+- **Open in slicer**, at the top of a [model page](/guide/models#header-actions) beside *Download all*. With one printable file it goes straight to the list of slicers; with several it asks which file first, largest listed first. Files missing from disk are left out, since their link would resolve to nothing and fail silently inside the slicer.
+- **Open in…**, on each row of the file tree, for when you already know which part you want.
 
 Supported slicers: **Bambu Studio**, **Creality Print**, **OrcaSlicer**, **PrusaSlicer**, **Cura** and **Lychee**. Each registers a URL scheme with your operating system, so the link opens the desktop app.
 
