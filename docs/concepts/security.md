@@ -48,6 +48,7 @@ Printer API keys, S3 secret keys, and MakerWorld/Thingiverse credentials have to
 - **Source imports** go only to each provider's API and known download/image hosts, over HTTPS, to public addresses, with redirects rejected and credentials never forwarded to CDN hosts.
 - **Printer connections** go to the addresses an admin configured.
 - **S3** goes to the configured endpoint.
+- **Update checks** read one public, unauthenticated GitHub URL at most every six hours and send nothing about the instance, not even the version it runs. Admins can turn them off: [Update Notifications](/deploy/update-notifications).
 
 ## Operator advice
 

@@ -23,6 +23,7 @@ Two application processes run from one image, with nginx in front of them:
 | Keep my library in a bucket | [S3 & Compatible Storage](/deploy/s3) |
 | Back up and restore | [Backups & Restore](/deploy/backups) |
 | Upgrade safely | [Upgrading](/deploy/upgrading) |
+| Know when a new version is out | [Update Notifications](/deploy/update-notifications) |
 | Index a very big library | [Large Libraries & Memory](/deploy/large-libraries) |
 | Work out what's wrong | [Troubleshooting](/deploy/troubleshooting) |
 
