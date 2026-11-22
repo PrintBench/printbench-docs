@@ -37,6 +37,10 @@ See [Tags, Creators & Collections](/guide/organising).
 | **Users** | Admins | Invitations, roles, password resets. See [Users & Roles](/admin/users). |
 | **Settings** | Admins | Instance-wide options. See [Instance Settings](/admin/settings). |
 
+## The account menu
+
+Your name at the foot of the sidebar opens the account menu: **Account settings**, **Help and documentation** (this site, in a new tab), the light and dark **Theme** switch, **Sign out**, and the version your instance is running. Quote that version when you report a problem.
+
 ## The command menu
 
 Press `⌘ K` (or `Ctrl K`) from anywhere to open the command menu. Type to search models, creators and tags, or to jump to any page in the sidebar.

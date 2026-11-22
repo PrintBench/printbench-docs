@@ -25,6 +25,10 @@ Members and admins also see connection forms for importing models:
 
 Credentials are per user, encrypted at rest and never shown again after saving. See [Importing from Model Sites](/guide/imports#connecting-your-accounts).
 
+## Help and documentation
+
+**Help and documentation** in the account menu opens this site, <https://docs.printbench.app/>, in a new tab. It is a link out rather than a page inside PrintBench, so your instance doesn't carry a copy of the documentation and the guide can be corrected without upgrading.
+
 ## Signing out
 
 **Sign out** is in the account menu.
