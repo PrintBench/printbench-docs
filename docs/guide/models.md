@@ -57,12 +57,12 @@ Files are shown as a collapsible directory tree, with 3MF files listed first. Ea
 
 Members can edit a model's details:
 
-![The edit dialog with name, notes, creator, licence and tags](/images/guide/model-edit.png)
+![The edit dialog with name, description, creator and licence](/images/guide/model-edit.png)
 
 | Field | Notes |
 | --- | --- |
 | **Name** | Defaults to a name worked out from the folder. An explicitly edited name is kept. |
-| **Notes** | Free text. |
+| **Description** | Free text about what the thing is. Distinct from [Notes](#notes) below, which is a dated log. |
 | **Creator** | Created if it doesn't exist yet. |
 | **Licence** | Pick a standard identifier so licences group together. |
 | **Tags** | Add and remove; new tags are created as you type. |
@@ -72,6 +72,38 @@ In a library PrintBench can write to, these are also saved as a [`.printbench.js
 ### Source links
 
 Models imported from a model site (or whose 3MF carries a recognised MakerWorld project) show a **Source links** section pointing back to the original page.
+
+### Photos
+
+**Photos** is what the thing actually looks like when it comes off the plate. A print log tells you a print succeeded; a photograph is the only reliable way to tell two versions of the same model apart six months later.
+
+Add one with **Add photos** — several at once if you like. Each is stored with an optional **caption** and, like a note, may name a **print** from this model's history or no print at all. Click a tile to open the full-size image; from there you can edit the caption and the print it belongs to, or delete it.
+
+A model holds up to **60** photos, and a single upload is capped at **25 MB**.
+
+::: tip Your photographs are re-encoded, on purpose
+Nothing is stored as you sent it. Every upload is decoded and written out as WebP at two sizes — one for the grid, one for the viewer. That is three things at once: it is the format check (a file that won't decode never reaches disk, whatever its name or content type claims), it bounds what a 48-megapixel phone photograph costs to serve, and it **strips the metadata your camera wrote**, including GPS coordinates. A shared workshop instance should not publish the owner's home address alongside a picture of a benchy.
+:::
+
+Uploading needs the **member** role. You can edit and delete your own photos; only an admin can change somebody else's. See [Roles & Permissions](/reference/roles).
+
+### Notes
+
+**Notes** is the model's working log: what went wrong, what fixed it, what to do differently next time. Each note keeps its author and the date it was written, newest first, and nothing overwrites what came before.
+
+![Two notes on a model, one of them naming the print it is about](/images/guide/model-notes.png)
+
+> First one warped off the bed at 40mm. Raised the bed to 65 and added a brim; second came out clean.
+
+A note can name a **print** from this model's history, or no print at all. Both are ordinary. A problem is usually found on one particular run, while the lesson drawn from it — *print the hinge face down* — outlives that run and belongs to the model. "No particular print" is the default, and the choice only appears once the model has prints to choose from.
+
+Deleting a print from the history does **not** delete the notes written about it. They stay, and simply stop naming a print: that note is often the only record of why the next print worked.
+
+Writing a note needs the **member** role. You can edit and delete your own; only an admin can change somebody else's, because a note is their account of what they did. See [Roles & Permissions](/reference/roles).
+
+::: tip Notes or description?
+The **Description** in the edit dialog says what the model *is*, is overwritten whenever anyone edits it, and is written out to the [sidecar](/concepts/sidecars). **Notes** are dated entries that accumulate. If you would want to read it back in order, it's a note.
+:::
 
 ### Print history
 

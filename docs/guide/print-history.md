@@ -52,6 +52,10 @@ Search also has a **Never printed** facet, to find models you own but haven't tr
 
 A model's **success rate** is *unknown*, not 0%, until at least one print has settled. A model whose only print is still running has no verdict yet, and 0% would read as a failure.
 
+## Notes about a print
+
+A print entry has its own **notes** field, for the settings and observations that belong to that run. Longer accounts — what went wrong and what you did about it — are better as a [model note](/guide/models#notes), which can name the print it is about and survives that print being deleted.
+
 ## From the print queue
 
 Marking a **linked** [print queue](/guide/print-queue) request as *printed* records an entry in the history automatically, so a model printed off the back of a request doesn't go on reporting "never printed". Reopening the request withdraws that entry again, unless somebody has since rated or weighed it, in which case it has been adopted as a real record and is left alone. A request with no model linked logs nothing.
