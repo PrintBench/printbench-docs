@@ -49,7 +49,7 @@ Files are shown as a collapsible directory tree, with 3MF files listed first. Ea
 
 Members can edit a model's details:
 
-![The edit dialog with name, description, creator, licence and tags](/images/guide/model-edit.png)
+![The edit dialog with name, description, creator and licence](/images/guide/model-edit.png)
 
 | Field | Notes |
 | --- | --- |
@@ -82,6 +82,8 @@ Uploading needs the **member** role. You can edit and delete your own photos; on
 ### Notes
 
 **Notes** is the model's working log: what went wrong, what fixed it, what to do differently next time. Each note keeps its author and the date it was written, newest first, and nothing overwrites what came before.
+
+![Two notes on a model, one of them naming the print it is about](/images/guide/model-notes.png)
 
 > First one warped off the bed at 40mm. Raised the bed to 65 and added a brim; second came out clean.
 
