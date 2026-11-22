@@ -11,7 +11,7 @@ The sidebar is the map of the app. What you see depends on your [role](/referenc
 | **Dashboard** | Everyone | Waiting-to-print requests, recently added models and latest prints. |
 | **Search** | Everyone | Full-text search with filters. See [Search & Filters](/guide/search). |
 | **Models** | Everyone | Every model in the library, as a grid. |
-| **Print queue** | Everyone | Things people have asked you to print. See [Print Queue](/guide/print-queue). |
+| **Print queue** | Everyone | Things people have asked you to print, with a pill counting those still to print. See [Print Queue](/guide/print-queue). |
 | **Upload** | Members and admins | Drag in files, or import from a model site. See [Uploading](/guide/uploading). |
 
 ### Browse

@@ -6,6 +6,12 @@ The **print queue** (`/queue`) is the list of things people have asked you to pr
 
 Anyone signed in can **raise** a request, including a viewer. Working through the queue (starting and finishing prints) needs the **member** role.
 
+## The sidebar count
+
+**Print queue** in the sidebar carries a pill with the number of requests still to come off a printer: everything **Requested** plus everything **Printing**. *Done* and *Cancelled* are finished with and are not counted.
+
+An empty queue shows no pill at all, rather than a `0` — the usual state should not look like something waiting for you. The count is read when the page is rendered, so it is right as soon as you land rather than appearing a moment later, and it is not shown to anyone whose role already hides the queue.
+
 ## Adding requests
 
 Requests arrive in batches, so the add box takes a **whole message** and makes **one request per line**.
