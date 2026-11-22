@@ -28,6 +28,14 @@ See [Safety Guards](/concepts/safety) and [Metadata & Sidecars](/concepts/sideca
 | **Track metadata problems** | On | Reports models with no licence, creator, tags or preview on the [health page](/admin/health). Turn it off if you don't curate that far. The important checks keep running either way. |
 | **Allow share links** | Off | Lets a signed-out visitor open a model that has been explicitly [shared](/guide/sharing). Off means the instance is entirely private, and turning it off closes every existing link. |
 
+## Updates
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| **Check for new versions** | On | Compares the version this instance runs against the latest published release every few hours, and shows a notice to admins when a newer one exists. Sends nothing about the instance or its library. Off means no outbound request for this at all. |
+
+The card above the switch shows the version you're running, whether anything newer exists, and a **Check now** button. See [Update Notifications](/deploy/update-notifications).
+
 ## What isn't here
 
 Environment-level settings (database, secrets, ports, storage roots) are set in `.env` and the Compose files, not in the UI. See [Environment Variables](/reference/environment).

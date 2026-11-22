@@ -8,7 +8,7 @@ These pages are for admins: the people who decide what PrintBench indexes, who c
 | [Scanning & Schedules](/admin/scanning) | Fast and deep scans, schedules, live watching and the safety aborts. |
 | [Users & Roles](/admin/users) | Invitations, creating accounts, roles, suspending and deleting. |
 | [Password Recovery](/admin/password-recovery) | Reset links without email, and the command-line fallback. |
-| [Instance Settings](/admin/settings) | Site name, default role, grace period, sidecars, viewer limit, sharing. |
+| [Instance Settings](/admin/settings) | Site name, default role, grace period, sidecars, viewer limit, sharing, update checks. |
 | [Printers](/admin/printers) | Connecting OctoPrint, Moonraker and PrusaLink. |
 | [Library Health](/admin/health) | The nine kinds of problem and how to clear them. |
 

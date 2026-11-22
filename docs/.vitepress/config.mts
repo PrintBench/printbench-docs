@@ -56,6 +56,10 @@ const sidebar = [
       { text: "S3 & Compatible Storage", link: "/deploy/s3" },
       { text: "Backups & Restore", link: "/deploy/backups" },
       { text: "Upgrading", link: "/deploy/upgrading" },
+      {
+        text: "Update Notifications",
+        link: "/deploy/update-notifications",
+      },
       { text: "Large Libraries & Memory", link: "/deploy/large-libraries" },
       { text: "Troubleshooting", link: "/deploy/troubleshooting" },
     ],

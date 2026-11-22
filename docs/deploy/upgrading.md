@@ -1,5 +1,9 @@
 # Upgrading
 
+PrintBench tells you when a newer version has been released: see
+[Update Notifications](/deploy/update-notifications) for the notice, what it
+checks and how to turn it off.
+
 ## Local quick start
 
 Back up the instance and keep its `credentials`, `pgdata` and `data` volumes.
