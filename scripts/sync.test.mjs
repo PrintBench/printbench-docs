@@ -110,3 +110,41 @@ test("missing canonical sections fail before changing generated output", async (
   assert.notEqual(run().status, 0);
   assert.equal(await readFile(target, "utf8"), before);
 });
+
+/*
+ * Both repositories are cloned separately, and on Windows git checks them out
+ * with CRLF endings. Headings are matched against a literal newline and
+ * staleness is a whole-file comparison, so without normalisation the sync
+ * reports a missing CONTRIBUTING.md section, or files that can never stop
+ * being stale, on a checkout that is perfectly correct.
+ */
+test("reads a CRLF checkout of either repository", async (t) => {
+  const { site, source, run } = await fixture(t);
+  assert.equal(run().status, 0);
+  const generated = path.join(site, "docs/.vitepress/shared/setup.md");
+  const expected = await readFile(generated, "utf8");
+
+  const crlf = async (file) =>
+    writeFile(file, (await readFile(file, "utf8")).replaceAll("\n", "\r\n"));
+  for (const file of [
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "docs/releasing.md",
+    "docs/releases/v0.9.0.md",
+    "docs/releases/v0.10.0.md",
+  ])
+    await crlf(path.join(source, file));
+
+  const checked = run("--check");
+  assert.equal(checked.status, 0, checked.stderr);
+  // And a CRLF checkout of the docs repository itself is not "stale" either,
+  // so nobody is asked to commit a pure line-ending churn.
+  await crlf(generated);
+  assert.equal(run("--check").status, 0);
+
+  // What it does rewrite comes out byte-identical to the LF run above.
+  await writeFile(generated, "A stale copy\r\n");
+  assert.equal(run("--check").status, 1);
+  assert.equal(run().status, 0);
+  assert.equal(await readFile(generated, "utf8"), expected);
+});
