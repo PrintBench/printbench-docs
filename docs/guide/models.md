@@ -37,6 +37,12 @@ If a 3MF exported from a slicer contains an embedded plate render, PrintBench us
 
 Packages and models that are missing from disk offer fewer actions. A model that can't be found shows a **Missing from disk** badge. See [Safety Guards](/concepts/safety).
 
+### Model information
+
+The panel beside the preview carries the facts about the model: its **library**, the **folder** it was indexed from, its **size** in millimetres, how many of its files are pre-supported, its **creator** and its **licence**.
+
+The library name is a link. It opens [search](/guide/search) filtered to that library, which is the same view the **Library** facet gives you — a library has no page of its own because filtered search already is one, with the facets, sorting and paging built. The creator name works the same way.
+
 ### The file tree
 
 Files are shown as a collapsible directory tree, with 3MF files listed first. Each file offers whatever applies to it:
