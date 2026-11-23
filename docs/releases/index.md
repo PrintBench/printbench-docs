@@ -6,6 +6,7 @@ Authored notes from the app repository. Historical archive pages retain the orig
 
 [View all GitHub releases](https://github.com/PrintBench/printbench/releases).
 
+- [v0.8.0](/releases/v0.8.0)
 - [v0.7.6](/releases/v0.7.6)
 - [v0.7.5](/releases/v0.7.5)
 - [v0.7.4](/releases/v0.7.4)

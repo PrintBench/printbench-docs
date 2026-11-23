@@ -22,6 +22,32 @@ An import brings in the title, creator, description, tags, licence, cover image,
 
 Repeating the same link in the same library follows the existing import; failed imports can be retried. **Files in an existing model are never overwritten** by an import.
 
+## Use the browser clipper
+
+Install PrintBench v0.8.0 or later and download the matching clipper from
+[GitHub Releases](https://github.com/PrintBench/printbench/releases).
+
+- **Chrome or Edge.** Extract `printbench-clipper-chrome-edge.zip`. Open
+  `chrome://extensions` or `edge://extensions`, enable **Developer mode**,
+  choose **Load unpacked**, and select the folder containing `manifest.json`.
+- **Firefox 140 or later.** Download `printbench-clipper-firefox.xpi`. In
+  `about:addons`, open the gear menu and choose **Install Add-on From File**.
+
+In PrintBench, open **Account settings → Browser clipper** and generate a token
+for your browser profile. In the extension settings, enter your PrintBench address
+and paste the token. Approve browser access to that address. Use HTTPS for remote
+installations.
+
+On a supported model page, open the clipper, choose a writable library and select
+**Send to PrintBench**. Reopen the popup to check progress or open the indexed
+model. MakerWorld and Thingiverse imports use the connections saved in PrintBench.
+
+Connection tokens expire after 90 days. Generate a new token to reconnect when
+one expires or after restoring a portable backup. To invalidate a token, select
+**Revoke** in PrintBench account settings. The extension sends the model URL,
+selected library and token to your PrintBench server and stores the token in your
+browser profile.
+
 ## Connecting your accounts
 
 Credentials are entered in **Account settings**, never on the Upload form. The connection status is shown on Upload, with a link to the right settings page. Credentials are per user, encrypted at rest, and never returned to the browser after saving.
