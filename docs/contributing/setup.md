@@ -21,12 +21,18 @@ More in [Command Line](/reference/cli).
 
 ## An S3 backend for development
 
-The dev compose file includes a MinIO behind a profile:
+The dev compose file includes an S3-compatible server, [SeaweedFS](https://github.com/seaweedfs/seaweedfs), behind a profile:
 
 ```bash
 docker compose -f docker-compose.dev.yml --profile s3 up -d
 npm run verify:s3
 ```
+
+It listens on `http://localhost:9000`, and the access key and secret are both `printbench`. `verify:s3` creates its `printbench-test` bucket on first run. To try S3 in the app, use the same endpoint and key when you add S3 storage. Any other bucket has to be created first, with any S3 client.
+
+::: info Why not MinIO
+The dev server used to be MinIO, but its images can no longer be pulled without an account. MinIO itself is still a supported provider for real deployments. If you still have the old `printbench_miniodata-dev` volume, nothing uses it, and `docker volume rm printbench_miniodata-dev` removes it.
+:::
 
 ## Running the real stack locally
 

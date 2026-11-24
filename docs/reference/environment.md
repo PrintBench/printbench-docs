@@ -62,7 +62,7 @@ Only used by the `verify:*` commands:
 | Variable | Description |
 | --- | --- |
 | `VERIFY_BASE_URL` | Base URL of the running dev server the scripts drive. |
-| `VERIFY_S3_ENDPOINT`, `VERIFY_S3_BUCKET`, `VERIFY_S3_ACCESS_KEY`, `VERIFY_S3_SECRET_KEY` | Point `npm run verify:s3` at a bucket other than the bundled MinIO. See [S3 & Compatible Storage](/deploy/s3#verifying-a-bucket-works). |
+| `VERIFY_S3_ENDPOINT`, `VERIFY_S3_BUCKET`, `VERIFY_S3_ACCESS_KEY`, `VERIFY_S3_SECRET_KEY` | Point `npm run verify:s3` at a bucket other than the bundled dev S3 server (SeaweedFS on `http://localhost:9000`). See [S3 & Compatible Storage](/deploy/s3#verifying-a-bucket-works). |
 
 ## What's configured in the UI instead
 

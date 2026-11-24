@@ -49,7 +49,7 @@ These drive a **running dev server** end to end, creating throwaway accounts and
 | `npm run verify:phase7` | Print history, slicer links and a stubbed printer. |
 | `npm run verify:phase8` | Health, settings, schedules, sharing and prune. |
 | `npm run verify:phase9` | The print queue, its role split and auto-linking. |
-| `npm run verify:s3` | The whole S3 path against a real bucket (defaults to the dev MinIO). |
+| `npm run verify:s3` | The whole S3 path against a real bucket (defaults to the dev SeaweedFS server, and creates its bucket if missing). |
 | `npx tsx scripts/verify-model-imports.mts` | A real resumable upload and its metadata, thumbnail, search and sidecar results. |
 | `node --import tsx scripts/benchmark-mesh-memory.mts <triangles> <heapMiB>` | The 3MF memory benchmark. See [Large Libraries & Memory](/deploy/large-libraries). |
 
