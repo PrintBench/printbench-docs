@@ -88,7 +88,7 @@ The row has controls to:
 - **Scan** (fast) or **Deep scan**. See [Scanning & Schedules](/admin/scanning).
 - Set a **schedule** and, for local libraries, **live watching**.
 - **Edit** the library. See below.
-- **Delete the library**: which removes the **index only**. Nothing on disk or in the bucket is touched, and the next scan rebuilds the index from the files and their sidecars.
+- **Remove** the library. By default this forgets the index and touches nothing on disk or in the bucket. See [Removing a library](#removing-a-library).
 - Review and **restore removed models**.
 
 ## Editing a library
@@ -105,6 +105,37 @@ The same page shows what is **fixed**, and why: the kind of library, its folder 
 
 The scan schedule is changed on the library's row, as before. To rotate or withdraw an S3 key, edit the connection under [Storage](/admin/storage) instead: every library on it follows.
 
+## Removing a library
+
+**Remove** on a library's row asks what should happen to its files, then for the library's name to confirm:
+
+| Choice | Offered for | What happens |
+| --- | --- | --- |
+| **Keep the files** | Every library | The default. PrintBench forgets the library and its models straight away. Nothing on disk or in the bucket is touched, and adding the folder again and scanning rebuilds the index from the files and their [sidecars](/concepts/sidecars). |
+| **Delete the files too** | Uploads libraries | Everything in the library's folder or S3 prefix is deleted, then the library is removed. Before you confirm, the dialog shows how many files that is, their total size and where they are. **This cannot be undone.** |
+| **Move the models to another library** | Uploads libraries, when another uploads library exists | Every model moves into the library you choose, keeping its tags, notes, print history and share links, then this library is removed. |
+
+A library of files you already had (**Existing folder**, or an existing S3 bucket) only ever offers **Keep the files**. PrintBench never deletes or moves those files, and the dialog says so.
+
+### Deleting the files
+
+The deletion covers everything under the library's folder or prefix: models, sidecars, and anything else put there. Two exceptions:
+
+- **Another library inside it is left alone.** Two libraries can't share a location, but one can sit inside another, for example a library on a whole bucket and another on its `models/` prefix. The dialog names any such library before you confirm.
+- **For a local library, its own top-level folder stays**, empty.
+
+### Moving the models
+
+Each model is moved exactly as **Move** on a model page would move it. Models already missing from disk have nothing to move and are removed with the library. Files PrintBench never indexed stay in the old folder.
+
+### While it runs
+
+Deleting and moving happen in the background, so a large bucket or library doesn't hold up the page. Until it finishes, the library's row shows what's happening in place of its controls, and scans, uploads, imports and moves leave that library alone.
+
+If any file can't be deleted, or any model can't be moved (for example because a model with the same path already exists in the destination), **the library is kept**, with the reason shown on its row. Fix the cause and remove it again to retry. A library is never dropped from the index while its files remain.
+
+Every removal is recorded in the audit log: who asked for it, and what was deleted or moved.
+
 ## Removed models
 
 Models someone chose **Remove from library** for are listed on this page and can be restored. A scan won't resurrect them on its own; the removal is recorded. See [Removing Models](/guide/removing).
@@ -115,7 +146,7 @@ Models someone chose **Remove from library** for are listed on this page and can
 | --- | --- |
 | View libraries, browse models | Viewer |
 | Trigger a normal scan | Member |
-| Add, edit, delete, schedule, deep-scan, restore sidecars | Admin |
+| Add, edit, remove, schedule, deep-scan, restore sidecars | Admin |
 | Add, edit and remove [S3 connections](/admin/storage) | Admin |
 
 See [Roles & Permissions](/reference/roles).

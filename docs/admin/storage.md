@@ -68,7 +68,7 @@ A connection that a library still uses **can't be removed**. Removing a credenti
 
 To withdraw a key:
 
-1. Move each of its libraries to another connection for the same bucket: **Edit** on the library's row, then choose the **S3 connection**. Or remove the library, which deletes only the index, never anything in the bucket.
+1. Move each of its libraries to another connection for the same bucket: **Edit** on the library's row, then choose the **S3 connection**. Or [remove the library](/admin/libraries#removing-a-library): with **Keep the files**, nothing in the bucket is touched.
 2. Remove the connection. Nothing in the bucket is touched.
 
 Then revoke the key with your storage provider as well.

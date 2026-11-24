@@ -17,7 +17,9 @@ Two different things share the word "delete", so PrintBench gives them two separ
 **Delete the files** actually erases them. It:
 
 - Appears **only** for a library PrintBench owns and writes to (an upload library).
-- Asks you to **type the model's name** to confirm, because it's the one irreversible action in the application.
+- Asks you to **type the model's name** to confirm, because it can't be undone.
+
+To remove a whole library, with the option to delete or move everything in it, see [Removing a library](/admin/libraries#removing-a-library).
 
 ## Restoring
 
