@@ -28,7 +28,7 @@ A **library** is a place PrintBench indexes. Go to **Manage → Libraries → Ad
 **2. Where?**
 
 - A folder on disk (including a NAS share mounted on the host), or
-- **S3-compatible storage**: see [S3 & Compatible Storage](/deploy/s3).
+- **S3-compatible storage**: add the bucket and its key under **Manage → Storage** first, then choose it here with an optional prefix. See [S3 & Compatible Storage](/deploy/s3).
 
 For a folder, the picker only shows locations under `LIBRARY_ROOTS`, so browsing can't wander outside what is mounted into the container. In the default Compose stack that is `/libraries` (your `LIBRARY_PATH`) and `/data/libraries` (uploads).
 

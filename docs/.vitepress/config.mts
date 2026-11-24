@@ -37,6 +37,7 @@ const sidebar = [
     link: "/admin/index",
     items: [
       { text: "Libraries", link: "/admin/libraries" },
+      { text: "Storage", link: "/admin/storage" },
       { text: "Scanning & Schedules", link: "/admin/scanning" },
       { text: "Users & Roles", link: "/admin/users" },
       { text: "Password Recovery", link: "/admin/password-recovery" },

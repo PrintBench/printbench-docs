@@ -35,7 +35,7 @@ nginx always keeps its own mount read-only. `LIBRARY_READ_ONLY` replaces the old
 
 1. **Choose the kind** (above).
 2. **Choose where**: a folder or **S3-compatible storage**.
-3. **Name it**, and for a folder pick the path with the folder picker. The name is also used as the folder name for an upload library.
+3. **Name it**, and for a folder pick the path with the folder picker. The name is also used as the folder name for an upload library. For S3, choose an **S3 connection** and an optional prefix instead (below).
 4. **Choose a grouping mode**: how folders become models:
 
 | Mode | What happens | Use it when |
@@ -56,30 +56,42 @@ The picker only offers paths under `LIBRARY_ROOTS` (a platform-path-separated li
 
 ### S3 fields
 
+The bucket and its key aren't entered here. They're set up once as an **S3 connection** under [Storage](/admin/storage), and any number of libraries can share one. A library on S3 only chooses:
+
 | Field | Notes |
 | --- | --- |
-| **Bucket** | Name only, with no `s3://` and no URL. |
-| **Prefix** | Optional. Only keys under it are indexed. |
-| **Region** | Blank means `us-east-1`. |
-| **Endpoint** | Blank for AWS. Set it for MinIO, B2, Wasabi, R2 and so on. |
-| **Access key ID** / **Secret access key** | Blank to use the server's own credentials. The secret is encrypted before storage. |
+| **S3 connection** | The bucket and key to use. If there are none yet, the form links to **Storage** to add one. |
+| **Prefix** | Optional. Only keys under it are indexed, so one bucket can hold several libraries. Leading and trailing slashes are ignored. |
+
+Two libraries can't index the same bucket and prefix, even through different connections. **Add library** on a connection's row under Storage starts this form with that connection already chosen.
 
 Full instructions, IAM policy and CORS rule: [S3 & Compatible Storage](/deploy/s3).
 
 ## The libraries page
 
-Each row shows the library, its path, scan state and counts, with controls to:
+Each row shows the library, its location (a path, or `s3://bucket/prefix/` and the connection it uses), scan state and counts, with controls to:
 
 ![The Libraries page](/images/admin/libraries.png)
 
 - **Scan** (fast) or **Deep scan**. See [Scanning & Schedules](/admin/scanning).
 - Set a **schedule** and, for local libraries, **live watching**.
+- **Edit** the library. See below.
 - **Delete the library**: which removes the **index only**. Nothing on disk or in the bucket is touched, and the next scan rebuilds the index from the files and their sidecars.
 - Review and **restore removed models**.
 
 ## Editing a library
 
-There is currently no UI for editing an existing library's storage settings. To change a bucket key pair, delete the library and add it again with the same bucket and prefix; the index rebuilds from the objects and sidecars. See [S3 & Compatible Storage](/deploy/s3#rotating-or-fixing-credentials).
+**Edit** on a library's row changes what is safe to change after it exists:
+
+| Setting | Notes |
+| --- | --- |
+| **Library name** | Shown everywhere the library appears. |
+| **Write a metadata sidecar** | Turning it off stops new [sidecar](/concepts/sidecars) writes. Sidecars already written are left where they are. |
+| **S3 connection** | S3 libraries only. Move the library onto another connection **to the same bucket**, for example to consolidate several libraries onto one shared key. The new connection is checked against the library's prefix before it is saved. |
+
+The same page shows what is **fixed**, and why: the kind of library, its folder (or bucket and prefix) and its grouping mode. Every indexed model is recorded relative to that location and grouping, so changing them would make the whole library look missing at the next scan, and the scan's [safety guard](/concepts/safety) would refuse to run. To index somewhere else, add a new library.
+
+The scan schedule is changed on the library's row, as before. To rotate or withdraw an S3 key, edit the connection under [Storage](/admin/storage) instead: every library on it follows.
 
 ## Removed models
 
@@ -91,6 +103,7 @@ Models someone chose **Remove from library** for are listed on this page and can
 | --- | --- |
 | View libraries, browse models | Viewer |
 | Trigger a normal scan | Member |
-| Add, delete, schedule, deep-scan, restore sidecars | Admin |
+| Add, edit, delete, schedule, deep-scan, restore sidecars | Admin |
+| Add, edit and remove [S3 connections](/admin/storage) | Admin |
 
 See [Roles & Permissions](/reference/roles).
