@@ -69,7 +69,19 @@ Full instructions, IAM policy and CORS rule: [S3 & Compatible Storage](/deploy/s
 
 ## The libraries page
 
-Each row shows the library, its location (a path, or `s3://bucket/prefix/` and the connection it uses), scan state and counts, with controls to:
+Each row shows the library, its location (a path, or `s3://bucket/prefix/` and the connection it uses), scan state and counts. A badge next to the name says in one phrase where the files are and what the library is for:
+
+| Badge | Meaning |
+| --- | --- |
+| **Existing folder** | Files you already had, on this server or a NAS mount. Read-only. |
+| **Uploads on this server** | A folder PrintBench owns and uploads into. |
+| **S3 at** *provider* | An existing bucket, for example *S3 at Backblaze B2*. Read-only. |
+| **Uploads to S3 at** *provider* | A bucket PrintBench uploads into. |
+| **S3, no connection** | An S3 library whose connection is missing. **Edit** it to choose one. |
+
+The provider is the one shown for the library's connection on [Storage](/admin/storage#the-storage-page). The library's **Edit** page uses the same phrase.
+
+The row has controls to:
 
 ![The Libraries page](/images/admin/libraries.png)
 

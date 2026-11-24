@@ -25,7 +25,27 @@ Bucket setup, the minimum IAM policies, the CORS rule for the 3D viewer and per-
 
 ## The storage page
 
-Each connection shows its bucket, endpoint and region, whether a key is stored or the server's own credentials are used, and every library on it with its prefix. A library's name links to its **Edit** page.
+Each connection shows its provider, its bucket, endpoint and region, whether a key is stored or the server's own credentials are used, and every library on it with its prefix. A library's name links to its **Edit** page.
+
+### How the provider is named
+
+The provider is worked out from the connection's **Endpoint**, not chosen separately, so it always matches the address PrintBench actually talks to:
+
+| Endpoint | Shown as |
+| --- | --- |
+| Blank, or `*.amazonaws.com` | AWS |
+| `*.backblazeb2.com` | Backblaze B2 |
+| `*.r2.cloudflarestorage.com` | Cloudflare R2 |
+| `*.wasabisys.com` | Wasabi |
+| `*.digitaloceanspaces.com` | DigitalOcean Spaces |
+| `storage.googleapis.com` | Google Cloud Storage |
+| `*.linodeobjects.com` | Akamai Object Storage |
+| `*.scw.cloud` | Scaleway |
+| `*.your-objectstorage.com` | Hetzner Object Storage |
+| A host whose name starts with `minio` (`minio`, `minio.lan`, `minio-01.example.com`) | MinIO |
+| Anything else | The endpoint's host and port, for example `nas.local:9000` |
+
+Self-hosted gateways such as Ceph or Garage can run at any address, so they show their host rather than a guess.
 
 A connection whose stored secret can no longer be read is flagged in red. That happens when `BETTER_AUTH_SECRET` has changed since the secret was saved. Edit the connection and enter the secret again.
 
