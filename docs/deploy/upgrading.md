@@ -32,6 +32,8 @@ Migrations run automatically at startup, **before** the app accepts traffic. The
 
 Migrations run once, from the **`web`** container's entrypoint, which applies pending migrations and then starts the server. The `worker` waits for the schema to be ready rather than racing to apply it. If a migration fails the web container stops rather than serving a half-migrated database. Check `docker compose logs web`.
 
+When a release ships newer [filament catalogue](/guide/filaments#filament-catalogue) data, the worker loads it on its first start, which takes a few seconds and needs no internet access. Until then the **Catalogue** tab says it is being prepared. Your own spools are never changed by a catalogue update.
+
 ## Rolling back
 
 Migrations are forward-only, so there is no automatic downgrade. To roll back to an older version, restore the database backup you took beforehand, and deploy the older release.

@@ -6,7 +6,7 @@ Authorisation lives in one place: a `can(user, action)` function used by both th
 
 | Action | What it covers | Viewer | Member | Admin |
 | --- | --- | :---: | :---: | :---: |
-| `filament:view` | Browse the shared [filament library](/guide/filaments) | ✅ | ✅ | ✅ |
+| `filament:view` | Browse the shared [filament library](/guide/filaments) and its catalogue | ✅ | ✅ | ✅ |
 | `filament:manage` | Add, edit, archive and measure shared spools and filament specifications | | ✅ | ✅ |
 | `model:view` | Browse and search models, creators, tags, collections | ✅ | ✅ | ✅ |
 | `file:download` | Download files and ZIPs | ✅ | ✅ | ✅ |

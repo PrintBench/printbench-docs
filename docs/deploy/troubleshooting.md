@@ -71,6 +71,10 @@ Change the library's grouping mode, or drop a `.printbench.json` in the folder y
 
 **Uploads aren't accepted.** No library of the *somewhere to upload to* kind exists. Add one under [Libraries](/admin/libraries).
 
+## Filament catalogue
+
+**The Catalogue tab says the catalogue is being prepared.** The worker loads it shortly after starting, so this should clear within a minute. If it doesn't, check the worker is running and look for lines starting `[catalogue]` in `docker compose logs worker`. A successful load logs the dataset version and counts; on later starts it logs `already imported`.
+
 ## Worker crashes or restarts
 
 Check for out-of-memory exits and enable `WORKER_MEMORY_LOG=1`. See [Large Libraries & Memory](/deploy/large-libraries).

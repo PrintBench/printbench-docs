@@ -48,6 +48,8 @@ Background work runs on **pg-boss**, backed by Postgres. Scheduled jobs register
 | Daily 03:45 | Archive sweep (the only scheduled job that deletes anything). |
 | Every 60 s | Watch reconciler (starts and stops live watchers). |
 
+At startup, and again after a restore, the worker also queues a **filament catalogue sync**. The [filament catalogue](/guide/filaments#filament-catalogue) ships inside the release as data files, never fetched online, and the sync loads it into Postgres. It compares a hash of the bundled data with what was last loaded, so it does real work only after an upgrade or restore and takes a few seconds when it does. Entries that leave the upstream database are marked removed rather than deleted, because your spools may still refer to them.
+
 pg-boss keeps one schedule per queue name, so per-library scan crons are **evaluated** by a sweep rather than registered individually. See [Scanning & Schedules](/admin/scanning).
 
 ## Storage adapters

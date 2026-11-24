@@ -23,7 +23,7 @@ Not sure what a screen is for? Start with [A Tour of PrintBench](/getting-starte
 
 ## Printing
 
-- [Filament Library](/guide/filaments): manage spools, remaining weight and print consumption.
+- [Filament Library](/guide/filaments): manage spools, remaining weight and print consumption, and add spools from the built-in filament catalogue.
 
 - [Print Queue](/guide/print-queue): requests for things to print, one per line.
 - [Print History](/guide/print-history): log what you printed, on what, and how it went.
