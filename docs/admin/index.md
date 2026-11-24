@@ -4,7 +4,8 @@ These pages are for admins: the people who decide what PrintBench indexes, who c
 
 | Page | What it covers |
 | --- | --- |
-| [Libraries](/admin/libraries) | Adding libraries, the two kinds, grouping modes, removed models. |
+| [Libraries](/admin/libraries) | Adding, editing and removing libraries, the two kinds, grouping modes, removed models. |
+| [Storage](/admin/storage) | S3 connections: buckets and keys shared by libraries, rotating and withdrawing them. |
 | [Scanning & Schedules](/admin/scanning) | Fast and deep scans, schedules, live watching and the safety aborts. |
 | [Users & Roles](/admin/users) | Invitations, creating accounts, roles, suspending and deleting. |
 | [Password Recovery](/admin/password-recovery) | Reset links without email, and the command-line fallback. |

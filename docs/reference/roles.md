@@ -29,7 +29,7 @@ Authorisation lives in one place: a `can(user, action)` function used by both th
 | `scan:trigger` | Trigger a normal scan | | ✅ | ✅ |
 | `problem:resolve` | Resolve or ignore [health](/admin/health) problems | | ✅ | ✅ |
 | `printhost:send` | Send sliced files to a printer | | ✅ | ✅ |
-| `library:manage` | Add, delete, schedule libraries; force or deep scans; restore sidecars; health page | | | ✅ |
+| `library:manage` | Add, edit, delete, schedule libraries; S3 connections; force or deep scans; restore sidecars; health page | | | ✅ |
 | `printhost:manage` | Add and edit printers | | | ✅ |
 | `user:manage` | Invite, create, suspend, delete, reset passwords | | | ✅ |
 | `settings:manage` | [Instance settings](/admin/settings) | | | ✅ |

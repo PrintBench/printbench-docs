@@ -33,6 +33,15 @@ Once a night (03:45) the archive sweep removes models that have been missing pas
 
 See [Removing Models](/guide/removing).
 
+The same split holds for a whole library. **Removing** one keeps its files by default. **Deleting its files** is offered only for an uploads library, and:
+
+- shows how many files it will delete before you confirm;
+- needs the library's name typed;
+- never reaches into another library nested inside it;
+- keeps the library, with the reason, if anything is left behind.
+
+See [Removing a library](/admin/libraries#removing-a-library).
+
 ## Import and upload safety
 
 - Imports **never overwrite files** in an existing model.

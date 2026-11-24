@@ -23,7 +23,7 @@ docker compose logs --tail=200 web worker
 
 **Sign-in or actions fail with origin errors behind a proxy.** `APP_URL` and `BETTER_AUTH_URL` don't match the public address, or the proxy isn't passing the original `Host` header (including its port). See [Reverse Proxy & TLS](/deploy/reverse-proxy).
 
-**Everyone was signed out and printers stopped working.** `BETTER_AUTH_SECRET` changed. Restore the old value, or re-enter printer keys and S3 secrets.
+**Everyone was signed out and printers stopped working.** `BETTER_AUTH_SECRET` changed. Restore the old value, or re-enter printer keys and S3 secrets. S3 secrets are re-entered once per connection under **Manage → Storage**, which flags the ones that can no longer be read.
 
 **I'm locked out.** See [Password Recovery](/admin/password-recovery).
 

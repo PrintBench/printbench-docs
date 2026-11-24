@@ -42,6 +42,8 @@
 
 **Rasteriser**. PrintBench's own software renderer, used to make thumbnails without a GPU or native toolchain.
 
+**S3 connection**. A bucket and the key that reaches it, set up once under **Manage → Storage** and shared by any number of S3 libraries, each indexing its own prefix. See [Storage](/admin/storage).
+
 **Sidecar**. A small JSON file (`.printbench.json`) beside a model that carries its metadata and declares it a model. See [Metadata & Sidecars](/concepts/sidecars).
 
 **Slicer link**. A short-lived signed URL that lets a desktop slicer fetch one file as 3MF.
