@@ -14,6 +14,8 @@
 
 **Fast scan**. The default scan; skips directories whose timestamps haven't changed.
 
+**Filament catalogue**. The built-in reference of commercial filament (brands, colours, spool sizes, settings, stores), from the Open Filament Database. Ships with each release and works offline. See [Filament library](/guide/filaments#filament-catalogue).
+
 **Grace period**. How long a missing model is kept before it can be removed. Default 30 days.
 
 **Grouping mode**. The rule for turning folders into models: *Each folder*, *Top level* or *Fixed depth*.
