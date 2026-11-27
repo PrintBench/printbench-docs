@@ -20,7 +20,7 @@ A suspended user is denied everything, even an admin.
 
 ![The Users page](/images/admin/users.png)
 
-**Invite someone** or **add them directly**:
+After first-run setup, an admin adds each account by sending an invitation or creating the account directly.
 
 ### Invitation link
 
