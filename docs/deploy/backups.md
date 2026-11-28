@@ -42,7 +42,9 @@ Old backups are removed only after a new one has been written and seen in the bu
 
 **On the same server**, **Backups in the bucket** under the schedule lists this server's backups first, then any from other servers' folders in the same bucket folder (the server this one replaced, say). Choose **Restore…**, then **Fetch this backup**, enter the passphrase, check what it holds and confirm. Everything on this instance is replaced and everyone is signed out.
 
-**On a new server**, copy the backup file out of the bucket with any S3 tool (your provider's web console, `aws s3 cp`, `rclone` and so on). Open the new server for the first time and choose **Restore from a backup**, upload the file, and enter the passphrase. The schedule comes back with the rest of your settings, so the new server carries on backing up, into its own folder.
+**On a new server**, open it for the first time, choose **Restore from a backup**, then **An S3 bucket**. Enter the bucket, its endpoint (blank for AWS) and region, a key that can read it, and the folder the old server backed up to (`printbench-backups` unless you changed it). **List backups** shows every backup in that folder, from every server, newest first. Choose one, enter its passphrase, check what it holds, and restore. The bucket details you type are used for that restore only and never saved: the restored database brings the old server's S3 connection back with it. Like the rest of first-run setup, this option closes as soon as any account exists. The schedule comes back with the rest of your settings, so the new server carries on backing up, into its own folder.
+
+If you'd rather not type a key into the new server, copy the backup file out of the bucket with any S3 tool (your provider's web console, `aws s3 cp`, `rclone` and so on) and upload it under **A backup file** instead. It asks for the passphrase the same way.
 
 A restore either completes or changes nothing. It goes into the same or a newer PrintBench, never an older one.
 
@@ -140,7 +142,7 @@ For a quick-start install, back up the `credentials` volume along with `pgdata` 
 With scheduled backups:
 
 1. In a throwaway environment, start a fresh stack, and **don't** set up an admin.
-2. Copy the newest backup out of the bucket and upload it under **Restore from a backup** on the first-run screen, with the passphrase.
+2. On the first-run screen, choose **Restore from a backup**, then **An S3 bucket**, list the backups and restore the newest with its passphrase.
 3. Sign in with an account from the backup, and check tags, creators and print history look right.
 
 Without them:
